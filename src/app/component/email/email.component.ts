@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Emails} from '../../services/email-list.service';
 
 @Component({
-  selector: 'app-email',
+  selector: 'email',
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.css']
 })
