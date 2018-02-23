@@ -19,4 +19,8 @@ export class AppComponent {
   onTyping(event) {
     this.display_emails = this._emailSet.getFilteredEmails(this.search_value);
   }
+
+  removeEmail (ind: number) {
+    this.display_emails.splice(ind, 1);
+  }
 }

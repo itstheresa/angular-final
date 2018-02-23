@@ -1,10 +1,24 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 export interface Emails {
   sender: string;
   subject: string;
   date: string;
   message: string;
+}
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
+
+@Injectable()
+export class ConfigService {
+  constructor(private http: HttpClient) { }
 }
 
 @Injectable()
@@ -45,7 +59,7 @@ export class EmailListService {
     let filteredEmails: Emails[] = [];
 
     for(let i = 0; i < this.email_inbox.length; i++) {
-      if(this.email_inbox[i].message.toLowerCase().indexOf(value.toLowerCase()) >= 0 || this.email_inbox[i].subject.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+      if(this.email_inbox[i].message.toLowerCase().indexOf(value.toLowerCase()) >= 0 || this.email_inbox[i].subject.toLowerCase().indexOf(value.toLowerCase()) >= 0 || this.email_inbox[i].sender.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
         filteredEmails.push(this.email_inbox[i]);
       }
     }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EmailComponent } from './component/email/email.component';
 import {EmailListService} from './services/email-list.service';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [EmailListService],
   bootstrap: [AppComponent]

@@ -1,14 +1,18 @@
+<div class="wrapper">
+
 <div class="top-container">
   <div class="logo-container">
     <img src="https://brand.tcnj.edu/files/2016/03/site-brand-downloads-logo-horizalt-FINAL.png" class="logo">
   </div>
   <div class="search-bar-container">
-    <input type="text" [(ngModel)]="search_value" class="search-bar" id="search-bar" (keyup)="onTyping($event)">
+    <input type="text" [(ngModel)]="search_value" class="search-bar" id="search-bar" (keyup)="onTyping($event)" rows="1" placeholder="search" onblur="this.placeholder='search'" onfocus="this.placeholder=''" maxlength="20">
   </div>
 </div>
 
 <div class="email-container">
-  <div class="email" *ngFor="let email_inbox of display_emails">
-    <email [Emails]="email_inbox"></email>
+  <div class="email" *ngFor="let email_inbox of display_emails; let i = index;">
+    <email [Emails]="email_inbox" (Deletion)="removeEmail(i)" ></email>
   </div>
+</div>
+
 </div>

@@ -2,4 +2,6 @@
   <p class="email-sender">{{email_inbox.sender}}</p>
   <p class="email-subject">{{email_inbox.subject}}</p>
   <p class="email-date">{{email_inbox.date}}</p>
+  <div class="deleteButton" (click)="delete_email.emit()">delete</div>
 </div>
+

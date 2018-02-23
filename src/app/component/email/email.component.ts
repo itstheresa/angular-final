@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import {Emails} from '../../services/email-list.service';
 
 @Component({
@@ -9,9 +9,12 @@ import {Emails} from '../../services/email-list.service';
 export class EmailComponent implements OnInit {
   @Input('Emails') email_inbox: Emails;
 
+  @Output('Deletion') delete_email = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
